@@ -46,7 +46,7 @@ var CheckDomainDialog = {
 		var limit = params.limit;
 		var to = params.to;
 		var cc = params.cc;
-		var bcc = params.bcc;
+		var bcc = params.bcc; 
 		
 		var bundle = document.getElementById("checkdomain-bundle");
 		
@@ -55,6 +55,10 @@ var CheckDomainDialog = {
 		
 		var cancelButton = document.documentElement.getButton("cancel");
 		cancelButton.label = bundle.getString("checkdomain.label.cancel");
+
+		document.addEventListener("dialogaccept", (event) => { CheckDomainDialog.doOk(); });
+        document.addEventListener("dialogcancel", (event) => { CheckDomainDialog.doCancel(); });
+
 		
 		var checkTarget = "";
 		if (to) {
@@ -98,15 +102,17 @@ var CheckDomainDialog = {
 		return listitem;
 	},
 	
-	doOk: function() {
+	doOk: function(event) {
 		var parent = window.arguments[0];
 		parent.confirmOk = true;
-		return true;
+		//return true;
+		dump("[OK] \n");
 	},
 	
-	doCancel: function() {
+	doCancel: function(event) {
 		var parent = window.arguments[0];
 		parent.confirmOk = false;
-		return true;
+		//return true;
+		dump("[CANCEL] \n");
 	}
 }

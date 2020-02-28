@@ -45,11 +45,9 @@
 <dialog id="donothing" title="&checkdomain.dialog.title;"
 	xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
 	buttons="accept,cancel"
-	onload="CheckDomainDialog.init();"
-	ondialogaccept="return CheckDomainDialog.doOk();"
-	ondialogcancel="return CheckDomainDialog.doCancel();">
+	onload="CheckDomainDialog.init();">
 	
-	<script type="application/x-javascript" src="chrome://checkdomain/content/checkdomain-dialog.js"/>
+	<script type="application/javascript" src="chrome://checkdomain/content/checkdomain-dialog.js"/>
 	
 	<stringbundleset id="stringbundleset">
 		<stringbundle id="checkdomain-bundle" src="chrome://checkdomain/locale/checkdomain.properties"/>
@@ -68,4 +66,14 @@
 			<listcol flex="1" />
 		</listcols>
 	</listbox>
+
+
+
+	<!--<richlistbox id="checkdomain-dialog-listbox" rows="7" style="color:windowtext;" disabled="true">
+		<listhead>
+			 <label class="header" flex="0" value="&checkdomain.dialog.type;" />
+			 <label class="header" flex="1" value="&checkdomain.dialog.address;" />
+		</listhead>
+	</richlistbox>
+	-->	
 </dialog>
