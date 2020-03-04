@@ -87,16 +87,18 @@ var CheckDomainDialog = {
 	
 	createListitem: function(recipient) {
 		
-		var listitem = document.createElement("listitem");
+		var listitem = document.createElement("richlistitem");
 		listitem.setAttribute("disabled", "true");
 		
-		var listcellType = document.createElement("listcell");
+		var listcellType = document.createElement("label");
 		var bundle = document.getElementById("checkdomain-bundle");
-		listcellType.setAttribute("label", bundle.getString("checkdomain.label." + recipient.type));
+		listcellType.setAttribute("flex", "0");
+		listcellType.setAttribute("value", bundle.getString("checkdomain.label." + recipient.type));
 		listitem.appendChild(listcellType);
 		
-		var listcellAddress = document.createElement("listcell");
-		listcellAddress.setAttribute("label", recipient.address);
+		var listcellAddress = document.createElement("label");
+		listcellType.setAttribute("flex", "0");
+		listcellAddress.setAttribute("value", recipient.address);
 		listitem.appendChild(listcellAddress);
 		
 		return listitem;
